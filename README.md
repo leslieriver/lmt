@@ -2,7 +2,7 @@
 
 A lemmy community backup utility.
 
-All images uploaded via lemmy is downloaded. A single html file `index.html` is generated to view the content in the directory this utility is ran in. 
+All images that are uploaded as the url will be downloaded. generated html file and media will be stored in a new folder in the path in which this utility is ran on. 
 
 Currently supports; Title; body; url from every post.
 
@@ -12,20 +12,15 @@ Usage:
 
 ```bash
 
-cargo run <lemmyserver> <community>
+cargo run <lemmyserver> <community> <limit>
 ```
 
-Example command to backup meme from `lemmy.ml`
+Example command to backup memes from `lemmy.ml`
 
 ```
-cargo run https://lemmy.ml memes
+cargo run https://lemmy.ml memes 50
 ```
 
-Example command to backup fren world from wolfballs
-
-```
-cargo run https://wolfballs.com frenworld
-```
 
 
 
