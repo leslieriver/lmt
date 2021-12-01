@@ -62,12 +62,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
 
     let _ = write!(file, "{}", &page);
-
-    //let mut retry_count = 0;
-    let query = format!(
-        "{}/api/v3/post/list?community_name={}&limit={}",
-        server, community, limit
-    );
+    let query = match community.contains("u/") {
+        true => {
+            let username = community.split("/").collect::<Vec<&str>>()[1];
+            format!(
+                "{}/api/v3/user?username={}&limit={}",
+                server,
+                username.to_string(),
+                limit
+            )
+        }
+        false => format!(
+            "{}/api/v3/post/list?community_name={}&limit={}",
+            server, community, limit
+        ),
+    };
 
     let res = client.get(query).send().await?;
 

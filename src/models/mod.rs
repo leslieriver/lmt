@@ -64,7 +64,7 @@ pub struct Community {
     pub id: i64,
     pub name: String,
     pub title: String,
-    pub description: String,
+    pub description: Option<String>,
     pub removed: bool,
     pub published: String,
     pub updated: Option<chrono::NaiveDateTime>,
