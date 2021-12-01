@@ -1,4 +1,4 @@
-# lemmy Meme Theif
+# lemmy Meme Thief
 
 A lemmy community backup utility.
 

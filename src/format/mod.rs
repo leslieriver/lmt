@@ -9,7 +9,18 @@ pub fn return_ending(input: String) -> String {
         ret_val = "gif".to_string();
     }
 
-    // Handle case where image has a question mark at end for some odd reason
+    if input.ends_with("gif?") {
+        ret_val = "gif".to_string();
+    }
+
+    if input.ends_with("jpeg") {
+        ret_val = "jpeg".to_string();
+    }
+
+    if input.ends_with("jpeg?") {
+        ret_val = "jpeg".to_string();
+    }
+
     if input.ends_with("jpg?") {
         ret_val = "jpg".to_string();
     }
@@ -36,10 +47,6 @@ pub fn return_ending(input: String) -> String {
 
     if input.ends_with("mp4?") {
         ret_val = "mp4".to_string();
-    }
-
-    if ret_val == "".to_string() {
-        //println!("Missed extension for url {}", input);
     }
     return ret_val;
 }
